@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import './globals.css'
 import styles from './layout.module.css'
 import type { Metadata } from 'next'
@@ -21,8 +22,9 @@ export default function RootLayout({
         <header className={styles.header}>
           <h1>Demo Note</h1>
           <nav className={styles.nav}>
-            <a>About</a>
-            <a>Contact Us</a>
+            <Link href="/about">About</Link>
+            <Link href="/products">Products</Link>
+            <Link href="/contact">Contact Us</Link>
           </nav>
         </header>
         {children}

@@ -1,6 +1,7 @@
 import styles from './layout.module.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,8 +18,8 @@ export default function ProductsLayout({
   return (
     <>
      <nav className={styles.nav}>
-      <a href="">여성복</a>
-      <a href="">남성복</a>
+      <Link href="/products/woman">여성복</Link>
+      <Link href="/products/man">남성복</Link>
       </nav>
       <section className={styles.product}>{children}</section>
     </>
