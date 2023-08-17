@@ -1,10 +1,14 @@
 import React from 'react'
+import {notFound} from 'next/navigation'
 type Props = {
   params: {
   slug: string
 } 
 }
-const pantsPage = ({params} : Props) => {
+const pantsPage = ({ params }: Props) => {
+  if (params.slug === 'nothing') { 
+	notFound()
+  }
   return (
     <div>{params.slug} 상세 페이지</div>
   )
