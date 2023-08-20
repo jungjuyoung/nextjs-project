@@ -2,7 +2,9 @@
 import React, { useState } from 'react'
 
 const Counter = () => {
-   const [count, setCount] = useState(0)
+  console.log('hi- client component 👋🏻'); // 브라우저 콘솔에서 출력이 되고, 서버상에서 빌드시 SSG로 프리랜더링 할 수 있는 부분까지 찾아서 렌더링 하기때문에 서버에서도 실행됨.
+  
+  const [count, setCount] = useState(0);
   return (
     <div>
       <p>{count}</p>
