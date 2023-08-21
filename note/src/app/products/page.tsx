@@ -3,6 +3,7 @@ import React from 'react'
 
 const products = ['pants','skirt','shirt','shoes']
 const productPage = () => {
+  // 서버파일(DB)에 있는 제품의 리스트를 읽어와서, 그걸 보여줌. 
   return (
     <>
       <h1>제품 소개페이지</h1>
