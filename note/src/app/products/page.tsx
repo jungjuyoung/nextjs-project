@@ -1,8 +1,9 @@
+import { getProducts } from '@app/utils/products'
 import Link from 'next/link'
 import React from 'react'
 
-const products = ['pants','skirt','shirt','shoes']
 const productPage = () => {
+  const products = getProducts();
   // 서버파일(DB)에 있는 제품의 리스트를 읽어와서, 그걸 보여줌. 
   return (
     <>
