@@ -1,4 +1,4 @@
-import { getProducts } from '@app/utils/products'
+import { getProducts } from '@/utils/products';
 import Link from 'next/link'
 import React from 'react'
 
