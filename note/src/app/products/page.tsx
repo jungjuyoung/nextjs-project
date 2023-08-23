@@ -2,7 +2,7 @@ import { getProducts } from '@/utils/products'
 import Link from 'next/link'
 import React from 'react'
 
-export const revalidate = 3
+export const revalidate = 3 // 3초 간격으로 ISR
 
 const productPage = async () => {
   const products = await getProducts();
