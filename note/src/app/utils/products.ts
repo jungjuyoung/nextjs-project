@@ -1,5 +1,5 @@
 import path from "path"
-import {promises as fs} from 'fs'
+import { promises as fs } from 'fs'
 
 export type Product = {
   id: string,
@@ -7,7 +7,7 @@ export type Product = {
   price: number
 }
 
-export async function getProducts():Promise<Product[]> {
+export async function getProducts(): Promise<Product[]> {
   const filePath = path.join(process.cwd(), 'data', 'products.json');
   const data = await fs.readFile(filePath, 'utf-8');
   // console.log('filePath: ',filePath)
@@ -16,7 +16,7 @@ export async function getProducts():Promise<Product[]> {
   return JSON.parse(data)
 }
 
-export async function getProduct(id: string): Promise<Product | undefined>{
+export async function getProduct(id: string): Promise<Product | undefined> {
   const products = await getProducts();
   return products.find(product => product.id === id)
 }
