@@ -13,6 +13,7 @@ export function generateMetadata({ params: { slug } }: Props) {
     title: `제품의 이름: ${slug}`,
   };
 }
+
 const productPage = async ({ params: { slug } }: Props) => {
   const product = await getProduct(slug);
   if (!product) {
@@ -33,7 +34,7 @@ export default productPage;
 export async function generateStaticParams() {
   // 일단 모든 제품의 페이지들을 미리 만들어 둘 수 있게 해줄것임( 현재는 규모가 작음으로...) SSG로.
   const products = await getProducts();
-  console.log(`products:${JSON.stringify(products, null, 4)}`);
+  console.log(`generateStaticParams products:${JSON.stringify(products, null, 4)}`);
   return products.map((product) => ({
     slug: product.id,
   }));
