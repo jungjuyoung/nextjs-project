@@ -7,5 +7,10 @@
   }
 }
 .product {
+  &::after {
+    display: block;
+    content: '------ 여기서부터가 프로덕트 시작 --------';
+    border: 1px solid lime;
+  }
   padding: 16px;
 }
