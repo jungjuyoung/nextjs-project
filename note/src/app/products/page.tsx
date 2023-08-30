@@ -2,6 +2,8 @@ import MeowArticle from '@/components/MeowArticle';
 import { getProducts } from '@/utils/products';
 import Link from 'next/link';
 import React from 'react';
+import clothes from '../../../public/images/clothes.jpg';
+import Image from 'next/image';
 
 // export const revalidate = 3; // 3초 간격으로 ISR (page에서)
 
@@ -19,6 +21,7 @@ const productsPage = async () => {
   return (
     <>
       <h1>제품 소개페이지</h1>
+      <Image src={clothes} alt="clothes" />
       <ul>
         {products.map(({ id, name }, index) => (
           <li key={index}>
