@@ -6,6 +6,7 @@ import React from 'react';
 // export const revalidate = 3; // 3초 간격으로 ISR (page에서)
 
 const productsPage = async () => {
+  // throw new Error(); // error.tsx컴포넌트 출력용.
   const products = await getProducts();
   // 서버파일(DB)에 있는 제품의 리스트를 읽어와서, 그걸 보여줌.
   // const res = await fetch('https://meowfacts.herokuapp.com/', { next: { revalidate: 0 } }); // 3초 간격으로 ISR을 fetch단위에서
