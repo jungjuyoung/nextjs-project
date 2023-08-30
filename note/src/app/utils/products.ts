@@ -4,7 +4,8 @@ import { promises as fs } from 'fs'
 export type Product = {
   id: string,
   name: string,
-  price: number
+  price: number,
+  image: string,
 }
 
 export async function getProducts(): Promise<Product[]> {
