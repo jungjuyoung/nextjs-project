@@ -1,9 +1,6 @@
 import styles from './layout.module.scss';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import Link from 'next/link';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: '멋진 쇼핑몰 | 전체 상품확인',

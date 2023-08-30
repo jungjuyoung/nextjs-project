@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import './globals.css';
-import styles from './layout.module.css';
+import styles from './layout.module.scss';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Open_Sans } from 'next/font/google';
+import { Comforter } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] });
-
+const openSans = Open_Sans({ weight: '600', subsets: ['latin'] });
+const comforter = Comforter({ weight: '400', subsets: ['latin'] });
 export const metadata: Metadata = {
   title: '멋진 쇼핑몰.',
   description: '멋진 상품을 판매한는 곳.',
@@ -19,7 +20,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <header className={styles.header}>
-          <h1>멋진 쇼핑몰 로고</h1>
+          <h1 className={comforter.className} style={{ fontSize: '39px' }}>
+            Shopping Mall
+          </h1>
           <nav className={styles.nav}>
             <Link href="/about">About</Link>
             <Link href="/products">Products</Link>
@@ -31,3 +34,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+``;
