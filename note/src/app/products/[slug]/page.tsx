@@ -1,7 +1,8 @@
 import React from 'react';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import { getProduct, getProducts } from '@/utils/products';
 import Image from 'next/image';
+import GoToProducstButton from '@/components/GoToProducst';
 type Props = {
   params: {
     slug: string;
@@ -17,13 +18,15 @@ export function generateMetadata({ params: { slug } }: Props) {
 const productPage = async ({ params: { slug } }: Props) => {
   const product = await getProduct(slug);
   if (!product) {
-    notFound();
+    redirect('/products');
+    // notFound();
   }
   // 서버파일에 있는 데이터중 해당 제품의 정보를 찾아서 그걸 보여줌.
   return (
     <div>
-      {product.name} 상세 페이지
+      {product.name} 제품 상세 페이지
       <Image src={`/images/${product.image}`} alt={product.image} width={400} height={400} />
+      <GoToProducstButton />
     </div>
   );
 };
