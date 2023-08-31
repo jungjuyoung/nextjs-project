@@ -19,6 +19,12 @@ const nextConfig = {
       { source: '/products/deleted_temp', destination: '/products', permanent: false },
     ];
   },
+  async rewrites() {
+    return [
+      { source: '/nadia', destination: '/about/me/nadia' },
+      { source: '/items/:slug', destination: '/products/:slug' },
+    ];
+  },
 };
 
 module.exports = nextConfig;
