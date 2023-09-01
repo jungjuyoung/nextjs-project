@@ -7,7 +7,7 @@ export default function Home() {
   console.log('hi- server component 👋🏻'); // 서버 콘솔에서만 출력이 되고, 브라우저의 콘솔탭에는 출력되지 않는다.
   return (
     <>
-      <h1>홈페이지</h1>
+      <h1>홈페이지 2</h1>
       <Counter />
       {/* 원격에 있는 이미지 */}
       <Image src="https://images.unsplash.com/photo-1441986300917-64674bd600d8" alt="external images" width={400} height={400} priority />
