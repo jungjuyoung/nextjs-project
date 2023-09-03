@@ -13,3 +13,9 @@ body {
   height: 100vh;
   overflow-y: auto;
 }
+body {
+  border: 1px solid red;
+}
+main {
+  border: 1px solid lime;
+}
