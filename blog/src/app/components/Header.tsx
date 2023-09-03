@@ -8,8 +8,8 @@ const Header = () => {
         <h1 className="text-3xl font-bold">{"Naida's blog"}</h1>
       </Link>
       <nav className="flex gap-4">
-        <Link href="/">about</Link>
-        <Link href="/about">home</Link>
+        <Link href="/about">about</Link>
+        <Link href="/">home</Link>
         <Link href="/posts">posts</Link>
         <Link href="/contact">contact</Link>
       </nav>
