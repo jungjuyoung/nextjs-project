@@ -11,8 +11,13 @@ export interface Posts {
 }
 
 export function getFeaturedPosts(): Promise<Posts[]> {
-  return getAllPosts() // 아래에서 정의한 모든 포스트를 가져와서 
+  return getAllPosts() // 아래에서 정의한 모든 포스트를 가져와서 featured된것만 필터링
     .then(posts => posts.filter(post => post.featured))
+}
+
+export function getNonFeaturedPosts(): Promise<Posts[]> {
+  return getAllPosts() // 아래에서 정의한 모든 포스트를 가져와서 Non Featured된것만 필터링
+    .then(posts => posts.filter(post => !post.featured))
 }
 
 export async function getAllPosts(): Promise<Posts[]> {
