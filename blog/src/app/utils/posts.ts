@@ -4,7 +4,7 @@ import path from "path";
 export interface Posts {
   title: string;
   description: string;
-  date: Date;
+  date: string;
   category: string;
   path: string
   featured: boolean
@@ -30,7 +30,7 @@ export async function getAllPosts(): Promise<Posts[]> {
 
 export async function getPostData(fileName: string): Promise<PostData> {
   const filePath = path.join(process.cwd(), 'data', 'posts', `${fileName}.md`)
-  console.log('filePath', filePath)
+  // console.log('filePath', filePath)
   const metaData = await getAllPosts().then(posts => posts.find(post => post.path === fileName))
   if (!metaData) throw new Error(`${fileName}에 해당하는 포스트가 없습니다.`)
   const content = await readFile(filePath, 'utf-8')
