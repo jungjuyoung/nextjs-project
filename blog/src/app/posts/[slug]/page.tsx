@@ -1,3 +1,4 @@
+import AdjacentPostCard from '@/app/components/AdjacentPostCard';
 import PostContent from '@/app/components/PostContent';
 import { getPostData } from '@/app/utils/posts';
 import Image from 'next/image';
@@ -9,6 +10,7 @@ type Props = {
 };
 const postPage = async ({ params: { slug } }: Props) => {
   const post = await getPostData(slug);
+  console.log('post ', post);
   const { title, path, next, prev } = post;
   // console.log(typeof date, date);
   return (
@@ -16,8 +18,8 @@ const postPage = async ({ params: { slug } }: Props) => {
       <Image className="w-full h-1/5 max-h-[500px] object-fit" src={`/images/posts/${path}.png`} alt={title} width={760} height={420} />
       <PostContent post={post} />
       <section>
-        {next && <span>이전 {next.title}</span>}
-        {prev && <span>다음 {prev.title}</span>}
+        {prev && <AdjacentPostCard post={prev} type="prev" />}
+        {next && <AdjacentPostCard post={next} type="next" />}
       </section>
     </article>
   );
