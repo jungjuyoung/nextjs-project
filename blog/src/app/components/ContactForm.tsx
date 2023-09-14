@@ -28,6 +28,7 @@ const ContactForm = () => {
     // }, 2500);
     console.log(form);
   };
+  console.log("hi- client ContactForm component 👋🏻");
   return (
     <section className="w-full max-w-md">
       {banner && <Banner banner={banner} />}
