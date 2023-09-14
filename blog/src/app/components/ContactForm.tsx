@@ -31,7 +31,10 @@ const ContactForm = () => {
   return (
     <>
       {banner && <Banner banner={banner} />}
-      <form onSubmit={onSubmit}>
+      <form
+        onSubmit={onSubmit}
+        className="w-full max-w-md flex flex-col gap-2 p-4 m-4 bg-slate-700 rounded-xl text-white"
+      >
         <label htmlFor="from">Your email</label>
         <input
           type="email"
@@ -41,6 +44,7 @@ const ContactForm = () => {
           autoFocus
           value={form.from}
           onChange={onChange}
+          className="text-black"
         />
         <label htmlFor="subject">Subject</label>
         <input
@@ -50,6 +54,7 @@ const ContactForm = () => {
           required
           value={form.subject}
           onChange={onChange}
+          className="text-black"
         />
         <label htmlFor="message">Message</label>
         <textarea
@@ -59,8 +64,11 @@ const ContactForm = () => {
           required
           value={form.message}
           onChange={onChange}
+          className="text-black"
         />
-        <button>Submit</button>
+        <button className="bg-yellow-300 hover:bg-yellow-500 text-black font-bold ">
+          Submit
+        </button>
       </form>
     </>
   );
