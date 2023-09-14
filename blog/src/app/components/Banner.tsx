@@ -9,7 +9,9 @@ const Banner = ({ banner: { message, state } }: { banner: BannerData }) => {
 
   return (
     <div
-      className={`p-2 ${isSuccess ? "bg-green-300" : "bg-red-700"}`}
+      className={`p-2 rounded-xl text-center w-full ${
+        isSuccess ? "bg-green-300" : "bg-red-300"
+      }`}
     >{`${icon} ${message}`}</div>
   );
 };

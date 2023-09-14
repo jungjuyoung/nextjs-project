@@ -23,17 +23,17 @@ const ContactForm = () => {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setBanner({ message: "성공!!!!", state: "success" });
-    setTimeout(() => {
-      setBanner(null);
-    }, 2500);
+    // setTimeout(() => {
+    //   setBanner(null);
+    // }, 2500);
     console.log(form);
   };
   return (
-    <>
+    <section className="w-full max-w-md">
       {banner && <Banner banner={banner} />}
       <form
         onSubmit={onSubmit}
-        className="w-full max-w-md flex flex-col gap-2 p-4 m-4 bg-slate-700 rounded-xl text-white"
+        className="w-full flex flex-col gap-2 p-4 my-4 bg-slate-700 rounded-xl text-white"
       >
         <label htmlFor="from">Your email</label>
         <input
@@ -70,7 +70,7 @@ const ContactForm = () => {
           Submit
         </button>
       </form>
-    </>
+    </section>
   );
 };
 
