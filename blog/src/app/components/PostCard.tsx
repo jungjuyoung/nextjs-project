@@ -1,10 +1,10 @@
 import React from "react";
-import { Posts } from "../utils/posts";
+import { Post } from "../utils/posts";
 import Link from "next/link";
 import Image from "next/image";
 
 type Props = {
-  post: Posts;
+  post: Post;
 };
 const PostCard = ({
   post: { title, description, date, category, path },
