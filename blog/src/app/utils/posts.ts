@@ -34,6 +34,7 @@ export async function getPostData(fileName: string): Promise<PostData> {
   const filePath = path.join(process.cwd(), 'data', 'posts', `${fileName}.md`);
   const posts = await getAllPosts();
   const post = posts.find(post => post.path === fileName);
+  console.log('getPostData post', post)
 
   if (!post) throw new Error(`${fileName}에 해당하는 포스트가 없습니다.`);
 
