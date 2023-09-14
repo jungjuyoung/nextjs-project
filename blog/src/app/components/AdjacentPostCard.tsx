@@ -15,7 +15,7 @@ const AdjacentPostCard = ({
 }: Props) => {
   // console.log("path", path, "title", title, "description", description);
   return (
-    <Link href={`/posts/${path}`} className="relative bg-black max-h-50 w-full">
+    <Link href={`/posts/${path}`} className="relative bg-black max-h-30 w-full">
       <Image
         src={`/images/posts/${path}.png`}
         alt={title}
