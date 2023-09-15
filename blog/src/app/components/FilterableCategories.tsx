@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
-import { Posts } from "../utils/posts";
+import { Post } from "../utils/posts";
 import PostsGrid from "./PostsGrid";
 import Categories from "./Categories";
 type Props = {
-  posts: Posts[];
+  posts: Post[];
   categories: string[];
 };
 const ALL_POSTS = "All Posts";

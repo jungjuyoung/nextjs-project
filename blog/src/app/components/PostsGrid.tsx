@@ -1,9 +1,9 @@
 import React from "react";
-import { Posts } from "../utils/posts";
+import { Post } from "../utils/posts";
 import PostCard from "./PostCard";
 
 type Props = {
-  posts: Posts[];
+  posts: Post[];
 };
 
 const PostsGrid = ({ posts }: Props) => {
