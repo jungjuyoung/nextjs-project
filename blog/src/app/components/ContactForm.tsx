@@ -10,10 +10,10 @@ export type EmailForm = {
   message: string;
 };
 const DEFAULT_EMAIL_DATA = {
-    from: "",
-    subject: "",
-    message: "",
-  }
+  from: "",
+  subject: "",
+  message: "",
+};
 const ContactForm = () => {
   const [form, setForm] = useState<EmailForm>(DEFAULT_EMAIL_DATA);
   const [banner, setBanner] = useState<BannerData | null>(null);
@@ -26,13 +26,23 @@ const ContactForm = () => {
     e.preventDefault();
     sendContactEmail(form)
       .then(() => {
-        setBanner({ message: "메일을 성공적으로 보냈습니다.!!", state: "success" })
-        setForm(DEFAULT_EMAIL_DATA)
+        setBanner({
+          message: "메일을 성공적으로 보냈습니다.!!",
+          state: "success",
+        });
+        setForm(DEFAULT_EMAIL_DATA);
       })
-      .catch(() => setBanner({ message: "메일을 전송하는데 실패했습니다.!!", state: "error" }))
-      .finally(() => setTimeout(() => {
-        setBanner(null);
-      }, 2500));
+      .catch(() =>
+        setBanner({
+          message: "메일을 전송하는데 실패했습니다.!!",
+          state: "error",
+        })
+      )
+      .finally(() =>
+        setTimeout(() => {
+          setBanner(null);
+        }, 2500)
+      );
   };
   console.log("hi- client ContactForm component 👋🏻");
   return (
