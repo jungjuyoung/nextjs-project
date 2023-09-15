@@ -5,14 +5,16 @@ const bodySchema = yup.object().shape({
   from: yup.string().email().required(),
   subject: yup.string().required(),
   message: yup.string().required()
-})
+});
+
 export async function POST(
   req: Request,
 ) {
-  console.log('req.body', req.body)
+  // console.log('api/sendEmail/POST req.body', req);
   const body = await req.json();
+  // console.log('api/sendEmail/POST req.json()', body, 'bodySchema: ', bodySchema);
   if (!bodySchema.isValidSync(body)) {
-    return new Response(JSON.stringify({ message: '메일전송에 실패함' }), { status: 400 })
+    return new Response(JSON.stringify({ message: '메일전송에 실패함. 유효하지 않는 이메일 형식 작성.' }), { status: 400 })
   }
 
   return sendEmail(body)

@@ -20,7 +20,7 @@ const ContactForm = () => {
   const onChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
-    console.log("name: ", name, "value: ", value);
+    // console.log("name: ", name, "value: ", value);
   };
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

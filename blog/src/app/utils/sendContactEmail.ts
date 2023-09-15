@@ -2,6 +2,7 @@ import { EmailForm } from '../components/ContactForm'
 
 const sendContactEmail = async (email: EmailForm) => {
   // api route에 이메일 전송을 위한 요청을 보냄 (fetch)
+  // console.log('utils/sendContactEmail email', email)
   const res = await fetch('/api/sendEmail', {
     method: 'POST',
     body: JSON.stringify(email),
@@ -11,6 +12,7 @@ const sendContactEmail = async (email: EmailForm) => {
   });
 
   const data = await res.json()
+  // console.log('utils/sendContactEmail res.json() ', data)
   if (!res.ok) {
     throw new Error(data.message || '서버 요청에 실패함.')
   }
