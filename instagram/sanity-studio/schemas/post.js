@@ -33,4 +33,11 @@ export default {
       ],
     },
   ],
+  preview: {
+    select: {
+      title: 'comments.0.comment',
+      subtitle: 'author.name',
+      media: 'photo',
+    },
+  },
 }
