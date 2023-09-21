@@ -10,6 +10,7 @@ import {
   SearchFillIcon,
   SearchIcon,
 } from "./ui/icons";
+import ColorButton from "./ui/ColorButton";
 const menu = [
   { href: "/", icon: <HomeIcon />, clickedIcon: <HomeFillIcon /> },
   { href: "/search", icon: <SearchIcon />, clickedIcon: <SearchFillIcon /> },
@@ -19,12 +20,12 @@ const menu = [
 const Navbar = () => {
   const pathName = usePathname();
   return (
-    <div>
+    <div className="flex justify-between items-center px-6">
       <Link href="">
-        <h1>Instagram</h1>
+        <h1 className="text-2xl font-bold">Instagram</h1>
       </Link>
-      <nav>
-        <ul>
+      <nav className="flex items-center">
+        <ul className="flex p-4 gap-4">
           {menu.map((item) => (
             <li key={item.href}>
               <Link href={item.href}>
@@ -33,6 +34,7 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
+        <ColorButton text="Sign in" onClick={() => {}} />
       </nav>
     </div>
   );
