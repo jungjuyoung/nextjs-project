@@ -24,7 +24,7 @@ const Navbar = () => {
   const pathName = usePathname();
   return (
     <div className="flex justify-between items-center px-6">
-      <Link href="">
+      <Link href="/">
         <h1 className="text-2xl font-bold">Instagram</h1>
       </Link>
       <nav className="flex items-center">
