@@ -1,13 +1,31 @@
 type Props = {
   image?: string | null;
+  size?: "small" | "normal";
+  highlight?: boolean;
 };
 
-const Aavatar = ({ image }: Props) => {
+const getContainerStyle = (size: string, highlight: boolean): string => {
+  const baseStyle = "rounded-full flex items-center justify-center";
+  const highlightStyle = highlight
+    ? "bg-gradient-to-bl from-fuchsia-600 via-rose-500 to-amber-500"
+    : "";
+  const sizeStyle = size === "small" ? "w-9 h-9" : "w-[68px] h-[68px]";
+  return `${baseStyle} ${highlightStyle} ${sizeStyle}`;
+};
+const getImageSizeStyle = (size: string): string => {
+  return size === "small"
+    ? "w-[34px] h-[34px] p-[0.1rem]"
+    : "w-16 h-16 p-[0.2rem]";
+};
+
+const Aavatar = ({ image, size = "normal", highlight = false }: Props) => {
   return (
-    <div className=" w-9 h-9 rounded-full bg-gradient-to-bl from-fuchsia-600 via-rose-500 to-amber-500">
+    <div className={getContainerStyle(size, highlight)}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        className="p-[0.15rem] rounded-full"
+        className={`bg-white p-[0.15rem] rounded-full ${getImageSizeStyle(
+          size
+        )}`}
         src={image ?? undefined}
         alt="user profile image"
         referrerPolicy="no-referrer"

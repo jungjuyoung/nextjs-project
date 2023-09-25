@@ -42,7 +42,7 @@ const Navbar = () => {
           <li>
             {user && (
               <Link href={`user/${user.username}`}>
-                <Aavatar image={user?.image} />
+                <Aavatar image={user?.image} size="small" highlight />
               </Link>
             )}
           </li>

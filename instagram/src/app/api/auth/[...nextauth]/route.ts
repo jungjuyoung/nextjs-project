@@ -14,16 +14,15 @@ const handler: NextAuthOptions = NextAuth({
       if (!email) {
         return false
       }
-      addUser({ email, image, name: name || '', id, username: email.split('@')[0] })
+      addUser({ id, name: name || '', email, image, username: email.split('@')[0] })
       return true
     },
     async session({ session }) {
-      console.log('session', session)
       const user = session?.user
       if (user) {
         session.user = {
           ...user,
-          username: user?.email?.split('@')[0] || ''
+          username: user.email?.split('@')[0] || ''
         }
       }
       return session
@@ -31,7 +30,6 @@ const handler: NextAuthOptions = NextAuth({
   },
   pages: {
     signIn: '/auth/signin',
-    signOut: '/auth/signout',
   }
 })
 export { handler as GET, handler as POST, handler };
