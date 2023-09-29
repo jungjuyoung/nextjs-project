@@ -3,7 +3,7 @@ import useSWR from "swr";
 
 const FollowingsBar = () => {
   const { data, error, isLoading } = useSWR("/api/hello");
-  console.log(data);
+  console.log("data", data);
   return <div>FollowingsBar</div>;
 };
 
