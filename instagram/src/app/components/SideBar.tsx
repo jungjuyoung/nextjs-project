@@ -6,7 +6,6 @@ type Props = {
   user: User;
 };
 const SideBar = ({ user: { name, email, username, image } }: Props) => {
-  console.log("SiderBar username", username, "email", email);
   return (
     <>
       <div className="flex items-center">
