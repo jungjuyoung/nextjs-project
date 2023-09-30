@@ -5,7 +5,7 @@ import Aavatar from "./Aavatar";
 type Props = {
   user: User;
 };
-const SideBar = ({ user: { name, email, username, image } }: Props) => {
+const SideBar = ({ user: { name, username, image } }: Props) => {
   return (
     <>
       <div className="flex items-center">
