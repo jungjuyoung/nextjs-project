@@ -9,12 +9,12 @@ import ScrollableBar from "./ui/ScrollableBar";
 const FollowingsBar = () => {
   const { data, error, isLoading } = useSWR<DetailUser>("/api/me");
   // console.log("FollowingsBar data", data?.following);
-  // const users = data?.following;
-  const users = data?.following && [
-    ...data?.following,
-    ...data?.following,
-    ...data?.following,
-  ];
+  const users = data?.following;
+  // const users = data?.following && [
+  //   ...data?.following,
+  //   ...data?.following,
+  //   ...data?.following,
+  // ];
 
   return (
     <section className="w-full flex justify-center items-center p-4 shadow-sm shadow-neutral-300 mb-4 rounded-lg min-h-[90px] overflow-x-auto">
@@ -28,16 +28,16 @@ const FollowingsBar = () => {
       {users && users.length > 0 && (
         <ScrollableBar>
           {users.map(({ image, username }) => (
-              <Link
+            <Link
               key={username}
-                href={`/user/${username}`}
-                className="flex flex-col items-center"
-              >
-                <Aavatar image={image} highlight />
-                <p className="w-20 text-center overflow-hidden text-ellipsis">
-                  {username}
-                </p>
-              </Link>
+              href={`/user/${username}`}
+              className="flex flex-col items-center"
+            >
+              <Aavatar image={image} highlight />
+              <p className="w-20 text-center overflow-hidden text-ellipsis">
+                {username}
+              </p>
+            </Link>
           ))}
         </ScrollableBar>
       )}
