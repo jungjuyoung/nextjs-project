@@ -1,9 +1,11 @@
-import React from 'react'
+"use client";
 
-const PostLists = () => {
-  return (
-    <div>PostLists</div>
-  )
-}
+import useSWR from "swr";
 
-export default PostLists
+const PostList = () => {
+  const { data, isLoading, error } = useSWR("/api/posts");
+  console.log("PostList data", data);
+  return <div>PostList</div>;
+};
+
+export default PostList;
