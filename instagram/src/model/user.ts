@@ -5,6 +5,7 @@ export type User = {
   image?: string
 }
 export type SimpleUser = Pick<User, 'username' | 'image'>
+
 export type DetailUser = {
   following: SimpleUser[],
   followers: SimpleUser[],
