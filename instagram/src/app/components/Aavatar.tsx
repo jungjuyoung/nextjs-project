@@ -23,7 +23,7 @@ const Aavatar = ({ image, size = "normal", highlight = false }: Props) => {
     <div className={getContainerStyle(size, highlight)}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        className={`bg-white p-[0.15rem] rounded-full ${getImageSizeStyle(
+        className={`bg-white object-cover p-[0.15rem] rounded-full ${getImageSizeStyle(
           size
         )}`}
         src={image ?? undefined}
