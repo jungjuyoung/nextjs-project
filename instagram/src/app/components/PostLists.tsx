@@ -1,7 +1,7 @@
 "use client";
 
 import { SimplePost } from "@/model/post";
-import { GridLoader } from "react-spinners";
+import { BeatLoader } from "react-spinners";
 import useSWR from "swr";
 import PostListCard from "./PostListCard";
 
@@ -12,7 +12,7 @@ const PostList = () => {
     <section>
       {isLoading && (
         <div>
-          <GridLoader color="red" />
+          <BeatLoader color="red" />
         </div>
       )}
       {posts && (
