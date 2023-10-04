@@ -1,9 +1,9 @@
 "use client";
 
 import { SimplePost } from "@/model/post";
-import { BeatLoader } from "react-spinners";
 import useSWR from "swr";
 import PostListCard from "./PostListCard";
+import DynamicSppiner from "./DynamicSppiner";
 
 const PostList = () => {
   const { data: posts, isLoading, error } = useSWR<SimplePost[]>("/api/posts");
@@ -12,7 +12,7 @@ const PostList = () => {
     <section>
       {isLoading && (
         <div className="text-center mt-20">
-          <BeatLoader color="red" size={8} />
+          <DynamicSppiner color='red'/>
         </div>
       )}
       {posts && (
