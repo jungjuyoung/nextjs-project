@@ -12,33 +12,44 @@ type Props = {
 const PostListCard = ({ post }: Props) => {
   const { userImage, username, image, createdAt, likes, text } = post;
   return (
-    <div>
-      <Aavatar image={userImage} highlight />
-      <span>{username}</span>
+    <article className="rounded-lg shadow-md border border-gray-200">
+      <div className="flex items-center p-2">
+        <Aavatar image={userImage} highlight size="medium" />
+        <span className="text-gray-900 font-bold ml-2">{username}</span>
+      </div>
       <Image
+        className="w-full object-cover aspect-square"
         src={image}
         alt={`photo by ${username}`}
         width={500}
         height={500}
       />
-      <div>
-        <BookmarkIcon />
+      <div className="flex justify-between my-2 px-2">
         <HeartIcon />
+        <BookmarkIcon />
       </div>
-      <div>
-        <p>{`${likes?.length ?? 0} ${likes?.length > 1 ? "likes" : "like"}`}</p>
+      <div className="px-4 py-2">
+        <p className="text-sm font-bold mb-2">{`${likes?.length ?? 0} ${
+          likes?.length > 1 ? "likes" : "like"
+        }`}</p>
         <p>
-          <strong>{username}</strong>
+          <strong className="mr-2">{username}</strong>
           {text}
         </p>
-        <p>{parseDate(createdAt)}</p>
-        <form action="">
+        <p className="text-xs text-neutral-500 uppercase my-2">
+          {parseDate(createdAt)}
+        </p>
+        <form className="flex border-t border-neutral-300 p-3">
           <SmileIcon />
-          <input type="text" placeholder="leave a comment" />
-          <button>post</button>
+          <input
+            className="w-full ml-2 border-none outline-none"
+            type="text"
+            placeholder="leave a comment"
+          />
+          <button className="font-bold text-sky-500 ml-2">post</button>
         </form>
       </div>
-    </div>
+    </article>
   );
 };
 

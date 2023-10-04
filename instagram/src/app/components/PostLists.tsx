@@ -7,18 +7,18 @@ import PostListCard from "./PostListCard";
 
 const PostList = () => {
   const { data: posts, isLoading, error } = useSWR<SimplePost[]>("/api/posts");
-  console.log("PostList data", posts);
+  // console.log("PostList data", posts);
   return (
     <section>
       {isLoading && (
-        <div>
-          <BeatLoader color="red" />
+        <div className="text-center mt-20">
+          <BeatLoader color="red" size={8} />
         </div>
       )}
       {posts && (
         <ul>
           {posts.map((post) => (
-            <li key={post.id}>
+            <li key={post.id} className="mb-4">
               <PostListCard post={post} />
             </li>
           ))}
