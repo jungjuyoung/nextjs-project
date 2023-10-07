@@ -8,6 +8,7 @@ const PostModal = ({ onClose, children }: Props) => {
   return (
     <section
       onClick={(event) => {
+        // console.log(event.target, event.curresntTarget);
         if (event.target === event.currentTarget) onClose();
       }}
       className="fixed left-0 top-0 w-full h-full flex flex-col justify-center items-center z-50  bg-neutral-900/70"
