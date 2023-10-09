@@ -2,7 +2,7 @@
 
 import { ProfielUser } from "@/model/user";
 import { FormEvent, useState } from "react";
-import { GridLoader } from "react-spinners";
+import { PropagateLoader } from "react-spinners";
 import useSWR from "swr";
 import UserCard from "./UserCard";
 
@@ -18,7 +18,7 @@ const UserSearch = () => {
   };
   return (
     <section className="w-full max-w-2xl my-4 flex flex-col items-center">
-      <form onSubmit={onSubmit} className="w-full mb-4">
+      <form onSubmit={onSubmit} className="w-full mb-4 text-center">
         <input
           className="w-full text-xl p-3 outline-none border border-gray-400"
           type="text"
@@ -28,7 +28,7 @@ const UserSearch = () => {
           placeholder="Search for a useername or name"
         />
         {error && <p>무언가가 잘못되었음.</p>}
-        {isLoading && <GridLoader />}
+        {isLoading && <PropagateLoader size={8} color="red" className="my-4" />}
         {!isLoading && !error && users?.length === 0 && (
           <p>찾는 사용자가 없음.</p>
         )}
