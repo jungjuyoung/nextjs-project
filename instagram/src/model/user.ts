@@ -11,3 +11,8 @@ export type DetailUser = {
   followers: SimpleUser[],
   bookmarks: string[]
 } & User
+
+export type ProfielUser = User & {
+  following: number,
+  followers: number,
+}
