@@ -1,18 +1,20 @@
-export type User = {
+export type AuthUser = {
   name: string
   username: string
   email: string
   image?: string
 }
-export type SimpleUser = Pick<User, 'username' | 'image'>
+export type SimpleUser = Pick<AuthUser, 'username' | 'image'>
 
-export type DetailUser = {
+export type HomeUser = {
   following: SimpleUser[],
   followers: SimpleUser[],
   bookmarks: string[]
-} & User
+} & AuthUser
 
-export type ProfielUser = User & {
+export type SearchUser = AuthUser & {
   following: number,
   followers: number,
 }
+
+export type ProfileUser = SearchUser & { posts: number }

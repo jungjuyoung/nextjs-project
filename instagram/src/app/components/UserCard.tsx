@@ -1,9 +1,9 @@
-import { ProfielUser } from "@/model/user";
+import { SearchUser } from "@/model/user";
 import Link from "next/link";
 import Aavatar from "./Aavatar";
 
 type Props = {
-  user: ProfielUser;
+  user: SearchUser;
 };
 const UserCard = ({
   user: { name, username, image, followers, following },

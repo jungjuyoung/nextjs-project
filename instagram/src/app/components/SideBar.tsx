@@ -1,9 +1,9 @@
-import { User } from "@/model/user";
+import { AuthUser } from "@/model/user";
 import React from "react";
 import Aavatar from "./Aavatar";
 
 type Props = {
-  user: User;
+  user: AuthUser;
 };
 const SideBar = ({ user: { name, username, image } }: Props) => {
   return (

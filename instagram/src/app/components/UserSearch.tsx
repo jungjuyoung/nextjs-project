@@ -1,6 +1,6 @@
 "use client";
 
-import { ProfielUser } from "@/model/user";
+import { SearchUser } from "@/model/user";
 import { FormEvent, useState } from "react";
 import { PropagateLoader } from "react-spinners";
 import useSWR from "swr";
@@ -14,7 +14,7 @@ const UserSearch = () => {
     isLoading,
     error,
     data: users,
-  } = useSWR<ProfielUser[]>(`/api/search/${debouncedKeyword}`);
+  } = useSWR<SearchUser[]>(`/api/search/${debouncedKeyword}`);
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
   };
