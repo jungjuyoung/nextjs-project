@@ -12,10 +12,10 @@ const userPage = async ({ params: { username } }: Props) => {
   const user = await getUserForProfile(username);
   if (!user) notFoundPage();
   return (
-    <>
+    <section className="w-full">
       <UserProfile user={user} />
       <UserPosts user={user} />
-    </>
+    </section>
   );
 };
 
