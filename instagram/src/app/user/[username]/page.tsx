@@ -1,6 +1,7 @@
 import { getUserForProfile } from "@/service/user";
 import notFoundPage from "./404";
 import UserProfile from "@/app/components/UserProfile";
+import UserPosts from "@/app/components/UserPosts";
 
 type Props = {
   params: { username: string };
@@ -10,7 +11,12 @@ const userPage = async ({ params: { username } }: Props) => {
   // 하단: 3개의 탭(posts, bookmark, likes)
   const user = await getUserForProfile(username);
   if (!user) notFoundPage();
-  return <UserProfile user={user} />;
+  return (
+    <>
+      <UserProfile user={user} />
+      <UserPosts user={user} />
+    </>
+  );
 };
 
 export default userPage;
