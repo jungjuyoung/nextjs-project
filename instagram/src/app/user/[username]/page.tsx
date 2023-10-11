@@ -2,14 +2,18 @@ import { getUserForProfile } from "@/service/user";
 import notFoundPage from "./404";
 import UserProfile from "@/app/components/UserProfile";
 import UserPosts from "@/app/components/UserPosts";
+import { Metadata } from "next";
+import { cache } from "react";
 
 type Props = {
   params: { username: string };
 };
+
+const getUser = cache(async (username: string) => getUserForProfile(username));
+
 const userPage = async ({ params: { username } }: Props) => {
-  // 상단: 사용자의 프로필 (username, name, 팔로워 숫자)
-  // 하단: 3개의 탭(posts, bookmark, likes)
-  const user = await getUserForProfile(username);
+  const user = await getUser(username);
+
   if (!user) notFoundPage();
   return (
     <section className="w-full">
@@ -20,3 +24,13 @@ const userPage = async ({ params: { username } }: Props) => {
 };
 
 export default userPage;
+
+export async function generateMetadata({
+  params: { username },
+}: Props): Promise<Metadata> {
+  const user = await getUser(username);
+  return {
+    title: `${user?.name} (@${user?.username}) ﹒ instagram photos`,
+    description: `${user?.name}'s all instagram posts`,
+  };
+}
