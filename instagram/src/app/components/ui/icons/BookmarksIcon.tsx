@@ -1,8 +1,8 @@
-import { RiBookmarkLine } from "react-icons/ri";
+import { FaRegBookmark } from "react-icons/fa";
 type Props = {
   className?: string;
 };
 const BookmarkIcon = ({ className }: Props) => {
-  return <RiBookmarkLine className={className || "w-6 h-6"} />;
+  return <FaRegBookmark className={className || "w-6 h-6"} />;
 };
 export default BookmarkIcon;
