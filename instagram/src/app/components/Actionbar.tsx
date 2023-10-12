@@ -7,6 +7,7 @@ import HeartFillIcon from "./ui/icons/HeartFillIcon";
 import BookmarkFillIcon from "./ui/icons/BookmarkFillIcon";
 import { SimplePost } from "@/model/post";
 import { useSession } from "next-auth/react";
+import { useSWRConfig } from "swr";
 
 type Props = {
   post: SimplePost;
@@ -28,15 +29,14 @@ const Actionbar = ({ post }: Props) => {
   //   createdAt
   // );
   const user = session?.user;
-  const [liked, setLiked] = useState(
-    user ? likes.includes(user.username) : false
-  );
+  const liked = user ? likes.includes(user.username) : false;
   const [bookmarked, setBookmarked] = useState(false);
+  const { mutate } = useSWRConfig();
   const handleLike = (liked: boolean) => {
     fetch("/api/likes", {
       method: "PUT",
       body: JSON.stringify({ id, liked }),
-    }).then(() => setLiked(liked));
+    }).then(() => mutate("/api/posts"));
   };
   return (
     <>
