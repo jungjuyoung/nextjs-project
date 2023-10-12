@@ -1,7 +1,6 @@
 "use client";
 
 import { SimplePost } from "@/model/post";
-import Aavatar from "./Aavatar";
 import Image from "next/image";
 
 import { CommentForm } from "./CommentForm";
@@ -33,12 +32,7 @@ const PostListCard = ({ post, priority = false }: Props) => {
         priority={priority}
         onClick={() => setOpenModal(true)}
       />
-      <Actionbar
-        likes={likes}
-        username={username}
-        createdAt={createdAt}
-        text={text}
-      />
+      <Actionbar post={post} />
       <CommentForm />
       {openModal && (
         <ModalPortal>

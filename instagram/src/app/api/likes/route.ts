@@ -8,7 +8,7 @@ export async function PUT(req: NextRequest) {
   const user = session?.user;
   if (!user) return new Response('Authentication Error', { status: 401 });
 
-  const { id, liked } = await req.json();
+  const { id, liked } = await req.json()
   if (!id || liked === undefined) return new Response('Bad request', { status: 400 });
   const request = liked ? likePost : dislikePost;
   return request(id, user.id).then(res => NextResponse.json(res)).catch(err => new Response(JSON.stringify(err), { status: 500 }))

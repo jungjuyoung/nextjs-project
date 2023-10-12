@@ -48,8 +48,9 @@ export async function getSavedPostsOf(username: string) {
     ${simplePostProjection}
   }`).then(mapPosts)
 }
+
 function mapPosts(posts: SimplePost[]) {
-  return posts.map((post: SimplePost) => ({ ...post, image: urlFor(post.image) }))
+  return posts.map((post: SimplePost) => ({ ...post, image: urlFor(post.image), likes: post.likes ?? [] }))
 }
 
 export async function likePost(postId: string, userId: string) {
