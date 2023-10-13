@@ -16,19 +16,7 @@ type Props = {
 
 const Actionbar = ({ post }: Props) => {
   const { data: session } = useSession();
-  const { id, likes, username, text, createdAt } = post;
-  // console.log(
-  //   "id: ",
-  //   id,
-  //   "likes",
-  //   likes,
-  //   "username",
-  //   username,
-  //   "text: ",
-  //   text,
-  //   "createdAt: ",
-  //   createdAt
-  // );
+  const { likes, username, text, createdAt } = post;
   const user = session?.user;
   const liked = user ? likes.includes(user.username) : false;
   const [bookmarked, setBookmarked] = useState(false);

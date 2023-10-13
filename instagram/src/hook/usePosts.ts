@@ -1,16 +1,28 @@
-
 import { SimplePost } from '@/model/post';
 import useSWR, { useSWRConfig } from 'swr';
 
-export default function usePosts() {
-  const { data: posts, isLoading, error } = useSWR<SimplePost[]>('/api/posts');
-  const { mutate } = useSWRConfig();
-  const setLike = (post: SimplePost, username: string, liked: boolean) => {
+async function updateLike(id: string, liked: boolean) {
+  return fetch("/api/likes", {
+    method: "PUT",
+    body: JSON.stringify({ id, liked }),
+  }).then(res => res.json())
+}
 
-    fetch("/api/likes", {
-      method: "PUT",
-      body: JSON.stringify({ id: post.id, liked }),
-    }).then(() => mutate("/api/posts"));
+export default function usePosts() {
+  const { data: posts, isLoading, error, mutate } = useSWR<SimplePost[]>('/api/posts');
+  const setLike = (post: SimplePost, username: string, liked: boolean) => {
+    const newPost = {
+      ...post, likes: liked ? [...post.likes, username] : post.likes.filter(p => p !== username)
+    }
+    const newPosts = posts?.map(p => (p.id === post.id ? newPost : p))
+
+    return mutate(updateLike(post.id, liked), {
+      optimisticData: newPosts,
+      populateCache: false,
+      revalidate: false,
+      rollbackOnError: true
+    })
   }
+
   return { posts, isLoading, error, setLike };
 }
