@@ -1,18 +1,17 @@
 "use client";
 
 import { SimplePost } from "@/model/post";
-import useSWR from "swr";
 import PostListCard from "./PostListCard";
 import DynamicSppiner from "./DynamicSppiner";
+import usePosts from "@/hook/usePosts";
 
 const PostList = () => {
-  const { data: posts, isLoading, error } = useSWR<SimplePost[]>("/api/posts");
-  // console.log("PostList data", posts);
+  const { posts, isLoading, error } = usePosts();
   return (
     <section>
       {isLoading && (
         <div className="text-center mt-20">
-          <DynamicSppiner color='red'/>
+          <DynamicSppiner color="red" />
         </div>
       )}
       {posts && (
