@@ -1,6 +1,5 @@
 "use client";
 
-import { SimplePost } from "@/model/post";
 import PostListCard from "./PostListCard";
 import DynamicSppiner from "./DynamicSppiner";
 import usePosts from "@/hook/usePosts";
